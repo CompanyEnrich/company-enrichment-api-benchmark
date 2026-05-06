@@ -1,26 +1,48 @@
-# Company Enrichment Benchmark Generator
+# Company Enrichment API Benchmark
 
-This directory contains the raw provider response files and a reproducible generator for the benchmark CSV outputs.
+This repository contains the sampled domain list, raw provider response files,
+and scripts used to generate benchmark CSV outputs for company enrichment APIs.
 
-Run from the repository root:
+## 1. Domain Sampling
+
+We sampled 500 candidate domains from the Majestic Million dataset.
+
+The Majestic Million is a public list of highly ranked domains. The sampling
+script downloads that file, filters it to simple `.com` domains, and randomly
+selects a diverse 500-domain sample for API coverage testing.
+
+| Item | Value |
+| --- | --- |
+| Source dataset | Majestic Million |
+| Source URL | `https://downloads.majestic.com/majestic_million.csv` |
+| Initial sample size | 500 domains |
+| Sampling method | Random selection after `.com` filtering and diversity balancing |
+| Script | `maj.py` |
+| Output | `random_domains.csv` |
+
+Run the sampling script from the repository root:
 
 ```bash
-python3 benchmarks/generate_benchmark_results.py
+python3 maj.py
 ```
 
-By default, the script reads raw JSONL files from `benchmarks/data` and writes generated outputs to:
+The script:
 
-```text
-benchmarks/data/generated
-```
+- downloads the Majestic Million CSV;
+- keeps only root `.com` domains with alphabetic second-level names;
+- excludes subdomains, private-style TLDs, digits, and hyphenated domains;
+- shuffles the filtered list;
+- limits over-representation by two-character prefix;
+- balances the final sample across first letters where possible;
+- writes the sorted output to `random_domains.csv`.
 
-To overwrite the benchmark CSV files used by the article:
+The current `random_domains.csv` contains 500 sampled domains plus a header row.
+The script does not set a random seed, so rerunning it can produce a different
+sample. Keep the checked-in CSV if the exact domain set needs to stay fixed.
 
-```bash
-python3 benchmarks/generate_benchmark_results.py --output-dir benchmarks/data
-```
+## 2. Provider Inputs
 
-The script reads only raw provider source files:
+Raw provider responses are stored in `data` as JSONL files:
 
 ```text
 apollo.jsonl
@@ -31,7 +53,29 @@ crustdata.jsonl
 pdl.jsonl
 ```
 
-It does not read existing generated benchmark CSVs as inputs.
+The benchmark generator reads only these raw provider source files. It does not
+use existing generated benchmark CSV files as inputs.
+
+## 3. Benchmark Generation
+
+Run the generator from the repository root:
+
+```bash
+python3 generate_benchmark_results.py
+```
+
+By default, the script reads raw JSONL files from `data` and writes generated
+outputs to:
+
+```text
+data/generated
+```
+
+To overwrite the benchmark CSV files currently stored in `data`:
+
+```bash
+python3 generate_benchmark_results.py --output-dir data
+```
 
 Generated outputs:
 
@@ -45,7 +89,13 @@ benchmark_config.json
 *_fields.csv
 ```
 
-Benchmark rules currently encoded:
+## 4. Benchmark Rules
+
+The current benchmark CSVs use a submitted-domain denominator of `349`, as
+encoded in `generate_benchmark_results.py`. This is separate from the 500-domain
+candidate sample in `random_domains.csv`.
+
+Rules currently encoded in the generator:
 
 - All public percentages use the submitted-domain denominator of `349`.
 - ContactOut records are unwrapped from their dynamic top-level domain key.
