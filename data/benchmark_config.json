@@ -9,6 +9,7 @@
     "Crustdata": "crustdata.jsonl"
   },
   "notes": [
+    "Public provider JSONL files are masked publication copies, and per-record name/domain identifiers in benchmark_record_depth.csv are masked.",
     "Category averages are calculated from populated canonical field counts divided by the submitted-domain denominator and the number of fields in each category.",
     "Returned-profile depth uses the average and median number of populated canonical fields on enriched records.",
     "ContactOut records were unwrapped from their dynamic top-level domain key before canonical field counting.",

@@ -1,7 +1,8 @@
 # Company Enrichment API Benchmark
 
-This repository contains the sampled domain list, raw provider response files,
-and scripts used to generate benchmark CSV outputs for company enrichment APIs.
+This repository contains the sampled domain list, masked provider response
+files, and scripts used to generate benchmark CSV outputs for company
+enrichment APIs.
 
 ## 1. Domain Sampling
 
@@ -42,7 +43,7 @@ sample. Keep the checked-in CSV if the exact domain set needs to stay fixed.
 
 ## 2. Provider Inputs
 
-Raw provider responses are stored in `data` as JSONL files:
+Masked provider responses are stored in `data` as JSONL files:
 
 ```text
 apollo.jsonl
@@ -53,10 +54,46 @@ crustdata.jsonl
 pdl.jsonl
 ```
 
-The benchmark generator reads only these raw provider source files. It does not
-use existing generated benchmark CSV files as inputs.
+The checked-in JSONL files are publication-safe masked copies, not full raw API
+responses. They preserve JSON shape, field names, null/empty values, booleans,
+array lengths, and field presence so the benchmark math remains reproducible
+without republishing full provider output.
 
-## 3. Benchmark Generation
+The benchmark generator reads only these provider source files. It does not use
+existing generated benchmark CSV files as inputs.
+
+## 3. Output Redaction
+
+Use `redact_provider_outputs.py` to create masked JSONL files.
+
+To write masked copies to `data/redacted`:
+
+```bash
+python3 redact_provider_outputs.py
+```
+
+To replace the checked-in provider JSONL files with masked publication copies:
+
+```bash
+python3 redact_provider_outputs.py --in-place
+```
+
+To mask the per-record identifier columns in `benchmark_record_depth.csv`:
+
+```bash
+python3 redact_provider_outputs.py --skip-jsonl --record-depth-csv data/benchmark_record_depth.csv
+```
+
+The redactor:
+
+- partially masks strings with `*` while preserving approximate structure;
+- masks names, domains, URLs, emails, phones, locations, IDs, slugs, descriptions, summaries, headlines, industries, keywords, tags, specialties, and technology names;
+- preserves platform hosts such as `linkedin.com` and `crunchbase.com` while masking profile paths;
+- buckets sensitive numbers such as revenue, funding amounts, employee counts, and follower counts;
+- preserves nulls, empty strings, empty arrays, booleans, object keys, array lengths, and numeric round counts used by benchmark depth metrics;
+- avoids remasking strings that already contain `*`.
+
+## 4. Benchmark Generation
 
 Run the generator from the repository root:
 
@@ -64,7 +101,7 @@ Run the generator from the repository root:
 python3 generate_benchmark_results.py
 ```
 
-By default, the script reads raw JSONL files from `data` and writes generated
+By default, the script reads provider JSONL files from `data` and writes generated
 outputs to:
 
 ```text
@@ -89,7 +126,7 @@ benchmark_config.json
 *_fields.csv
 ```
 
-## 4. Benchmark Rules
+## 5. Benchmark Rules
 
 The current benchmark CSVs use a submitted-domain denominator of `349`, as
 encoded in `generate_benchmark_results.py`. This is separate from the 500-domain

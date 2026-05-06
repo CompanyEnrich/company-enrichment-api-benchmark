@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Generate company enrichment benchmark outputs from raw provider JSONL files.
+Generate company enrichment benchmark outputs from provider JSONL files.
 
 This script is intentionally self-contained so it can be published with the
 benchmark repo. It does not read any previously generated benchmark CSV/JSON
-files. Inputs are the raw provider response files only.
+files. Inputs are the provider response JSONL files only. In the public repo,
+those JSONL files may be masked publication copies.
 
 Default usage:
   python3 benchmarks/generate_benchmark_results.py
@@ -914,7 +915,7 @@ def write_config(path: Path) -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "source_files": SOURCE_FILES,
         "notes": [
-            "Generated from raw provider JSONL files only.",
+            "Generated from provider JSONL files only. Public JSONL inputs may be masked publication copies.",
             "Provider-specific market identifier fields are excluded from benchmark metrics.",
             "Category averages are calculated from populated canonical field counts divided by the submitted-domain denominator and the number of fields in each category.",
             "Returned-profile depth uses the average and median number of populated canonical fields on enriched records.",
@@ -1061,12 +1062,12 @@ def generate(input_dir: Path, output_dir: Path) -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate benchmark CSVs from raw provider JSONL files.")
+    parser = argparse.ArgumentParser(description="Generate benchmark CSVs from provider JSONL files.")
     parser.add_argument(
         "--input-dir",
         type=Path,
         default=Path(__file__).resolve().parent / "data",
-        help="Directory containing raw provider JSONL files.",
+        help="Directory containing provider JSONL files.",
     )
     parser.add_argument(
         "--output-dir",
