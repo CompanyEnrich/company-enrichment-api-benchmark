@@ -1,0 +1,7 @@
+provider,domains_submitted,record_count,not_enriched,find_rate_pct,invalid_jsonl_lines,raw_field_count,avg_canonical_fields_present,median_canonical_fields_present,avg_raw_non_empty_leaf_fields,median_raw_non_empty_leaf_fields,avg_keyword_count,avg_technology_count,avg_social_profile_count,avg_location_contact_field_count,avg_description_chars,rank
+CompanyEnrich,349,236,113,67.6,0,55,17.86,19.0,34.34,37.0,21.83,12.36,3.58,1.71,99.58,1
+Apollo,349,215,134,61.6,0,158,15.37,16,58.79,59,56.49,19.76,2.3,1.74,89.48,2
+PDL,349,210,139,60.2,0,1255,13.70,14.0,347.23,39.0,4.7,0,2.85,0.93,81.87,3
+Coresignal,349,176,173,50.4,0,86,14.18,15.0,52.36,55.0,10.3,30.81,1.08,1.55,95.66,4
+ContactOut,349,185,164,53.0,0,22,11.46,12,16.11,17,5.63,0,1,0.91,85.92,5
+Crustdata,349,135,214,38.7,0,13,6.69,7,12.61,13,2.06,0,0.99,0,0,6

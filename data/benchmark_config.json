@@ -1,0 +1,636 @@
+{
+  "generated_at": "2026-05-05T00:00:00.000Z",
+  "source_files": {
+    "PDL": "pdl.jsonl",
+    "Apollo": "apollo.jsonl",
+    "CompanyEnrich": "companyenrich.jsonl",
+    "ContactOut": "contactout.jsonl",
+    "Coresignal": "coresignal.jsonl",
+    "Crustdata": "crustdata.jsonl"
+  },
+  "notes": [
+    "Category averages are calculated from populated canonical field counts divided by the submitted-domain denominator and the number of fields in each category.",
+    "Returned-profile depth uses the average and median number of populated canonical fields on enriched records.",
+    "ContactOut records were unwrapped from their dynamic top-level domain key before canonical field counting.",
+    "CompanyEnrich uses the cleaned companyenrich.jsonl currently in the workspace.",
+    "Country/state/city/street-or-full-address/postal-code are combined into one canonical location field.",
+    "Placeholder values are treated as missing in canonical field coverage where applicable: numeric 0 for employee count, revenue, founded year, and follower count; and N/A-style strings for revenue.",
+    "People Data Labs profiles[] is counted as Crunchbase only when the individual profile URL contains crunchbase.com.",
+    "Website metadata/SEO metadata fields are excluded from the benchmark.",
+    "Percentage columns in generated benchmark CSVs use the total submitted-domain denominator of 349; matched-record percentage columns preserve returned-record denominators where useful.",
+    "The canonical 'domain' and 'website' fields were merged into a single 'domain_website' field because every tested provider populates the two fields from the same source path(s); counting them separately double-counted the same signal.",
+    "The canonical 'multi_industries' field was removed because four of six tested providers mapped it to the same source path(s) as 'industry', which double-counted the same signal. Providers that genuinely return a multi-industry array (such as Apollo's industries[] or CompanyEnrich's industries[]) are still credited via 'industry'; the additional richness is not measured as a separate canonical field in this benchmark.",
+    "Parent_company, subsidiaries, and affiliates were merged into a single 'corporate_relations' canonical field. For the only provider that exposed all three (PDL), the affiliates field was a near-superset of the other two, so treating them as three independent signals overstated org-structure depth. The combined field counts as present when any parent, subsidiary, or affiliate value was returned.",
+    "Funding_rounds, total_funding, and funding_stage were merged into a single 'funding_data' canonical field. For every tested provider, 'any of these populated' equals the funding_rounds count exactly: stage and total are subsets of rounds. Counting them as three independent signals overstated funding coverage. The merged field counts as present when any rounds/stage/amount data was returned."
+  ],
+  "bucket_weights": {
+    "core_identity": 25,
+    "firmographics": 20,
+    "location_contact": 15,
+    "social_web": 15,
+    "taxonomy": 10,
+    "org_structure": 5,
+    "technology": 5,
+    "funding": 5
+  },
+  "canonical_fields": [
+    {
+      "bucket": "core_identity",
+      "field": "company_id"
+    },
+    {
+      "bucket": "core_identity",
+      "field": "name"
+    },
+    {
+      "bucket": "core_identity",
+      "field": "domain_website"
+    },
+    {
+      "bucket": "core_identity",
+      "field": "description"
+    },
+    {
+      "bucket": "core_identity",
+      "field": "logo"
+    },
+    {
+      "bucket": "firmographics",
+      "field": "industry"
+    },
+    {
+      "bucket": "firmographics",
+      "field": "employee_count_or_range"
+    },
+    {
+      "bucket": "firmographics",
+      "field": "revenue"
+    },
+    {
+      "bucket": "firmographics",
+      "field": "founded_year"
+    },
+    {
+      "bucket": "firmographics",
+      "field": "company_type"
+    },
+    {
+      "bucket": "location_contact",
+      "field": "location"
+    },
+    {
+      "bucket": "location_contact",
+      "field": "phone"
+    },
+    {
+      "bucket": "location_contact",
+      "field": "email"
+    },
+    {
+      "bucket": "social_web",
+      "field": "linkedin"
+    },
+    {
+      "bucket": "social_web",
+      "field": "facebook"
+    },
+    {
+      "bucket": "social_web",
+      "field": "twitter_x"
+    },
+    {
+      "bucket": "social_web",
+      "field": "instagram"
+    },
+    {
+      "bucket": "social_web",
+      "field": "youtube"
+    },
+    {
+      "bucket": "social_web",
+      "field": "crunchbase"
+    },
+    {
+      "bucket": "social_web",
+      "field": "follower_count"
+    },
+    {
+      "bucket": "taxonomy",
+      "field": "categories"
+    },
+    {
+      "bucket": "taxonomy",
+      "field": "keywords_tags_specialties"
+    },
+    {
+      "bucket": "taxonomy",
+      "field": "naics"
+    },
+    {
+      "bucket": "taxonomy",
+      "field": "sic"
+    },
+    {
+      "bucket": "technology",
+      "field": "technologies"
+    },
+    {
+      "bucket": "funding",
+      "field": "funding_data"
+    },
+    {
+      "bucket": "org_structure",
+      "field": "corporate_relations"
+    }
+  ],
+  "provider_field_mapping": {
+    "PDL": {
+      "company_id": [
+        "id"
+      ],
+      "name": [
+        "name",
+        "display_name"
+      ],
+      "description": [
+        "summary",
+        "headline"
+      ],
+      "logo": [
+        "logo",
+        "logo_url"
+      ],
+      "industry": [
+        "industry",
+        "industry_v2"
+      ],
+      "employee_count_or_range": [
+        "employee_count",
+        "size"
+      ],
+      "revenue": [
+        "inferred_revenue",
+        "average_inferred_revenue"
+      ],
+      "founded_year": [
+        "founded"
+      ],
+      "company_type": [
+        "type"
+      ],
+      "phone": [
+        "phone",
+        "phone_numbers[]"
+      ],
+      "email": [
+        "emails[]",
+        "email"
+      ],
+      "linkedin": [
+        "linkedin_url",
+        "linkedin_id"
+      ],
+      "facebook": [
+        "facebook_url"
+      ],
+      "twitter_x": [
+        "twitter_url"
+      ],
+      "instagram": [
+        "instagram_url"
+      ],
+      "youtube": [
+        "youtube_url"
+      ],
+      "crunchbase": [
+        "crunchbase_url",
+        "profiles[]"
+      ],
+      "follower_count": [
+        "linkedin_follower_count"
+      ],
+      "categories": [],
+      "keywords_tags_specialties": [
+        "tags[]"
+      ],
+      "naics": [
+        "naics[].naics_code"
+      ],
+      "sic": [
+        "sic[].sic_code"
+      ],
+      "technologies": [
+        "technologies[]"
+      ],
+      "location": [
+        "location.country",
+        "location.region",
+        "location.locality",
+        "location.street_address",
+        "location.name",
+        "location.postal_code"
+      ],
+      "domain_website": [
+        "website"
+      ],
+      "corporate_relations": [
+        "ultimate_parent",
+        "immediate_parent",
+        "direct_subsidiaries[]",
+        "all_subsidiaries[]",
+        "affiliated_entities[].affiliated_id",
+        "affiliated_profiles[]"
+      ],
+      "funding_data": [
+        "number_funding_rounds",
+        "funding_stages[]",
+        "total_funding_raised",
+        "latest_funding_stage"
+      ]
+    },
+    "Apollo": {
+      "company_id": [
+        "id"
+      ],
+      "name": [
+        "name"
+      ],
+      "description": [
+        "short_description"
+      ],
+      "logo": [
+        "logo_url"
+      ],
+      "industry": [
+        "industry"
+      ],
+      "employee_count_or_range": [
+        "estimated_num_employees"
+      ],
+      "revenue": [
+        "annual_revenue",
+        "organization_revenue",
+        "annual_revenue_printed",
+        "organization_revenue_printed"
+      ],
+      "founded_year": [
+        "founded_year"
+      ],
+      "company_type": [],
+      "phone": [
+        "phone",
+        "primary_phone.number",
+        "primary_phone.sanitized_number",
+        "sanitized_phone"
+      ],
+      "email": [
+        "emails[]"
+      ],
+      "linkedin": [
+        "linkedin_url",
+        "linkedin_uid"
+      ],
+      "facebook": [
+        "facebook_url"
+      ],
+      "twitter_x": [
+        "twitter_url"
+      ],
+      "instagram": [],
+      "youtube": [],
+      "crunchbase": [
+        "crunchbase_url"
+      ],
+      "follower_count": [],
+      "categories": [],
+      "keywords_tags_specialties": [
+        "keywords[]"
+      ],
+      "naics": [
+        "naics_codes[]"
+      ],
+      "sic": [
+        "sic_codes[]"
+      ],
+      "technologies": [
+        "current_technologies[].name",
+        "technology_names"
+      ],
+      "location": [
+        "country",
+        "state",
+        "city",
+        "raw_address",
+        "street_address",
+        "postal_code"
+      ],
+      "domain_website": [
+        "primary_domain",
+        "website_url"
+      ],
+      "corporate_relations": [
+        "suborganizations[].id",
+        "suborganizations[].name"
+      ],
+      "funding_data": [
+        "funding_events[].id",
+        "funding_events[].type",
+        "total_funding",
+        "total_funding_printed",
+        "latest_funding_stage"
+      ]
+    },
+    "CompanyEnrich": {
+      "company_id": [
+        "id"
+      ],
+      "name": [
+        "name"
+      ],
+      "description": [
+        "description"
+      ],
+      "logo": [
+        "logo_url"
+      ],
+      "industry": [
+        "industry"
+      ],
+      "employee_count_or_range": [
+        "employees"
+      ],
+      "revenue": [
+        "revenue"
+      ],
+      "founded_year": [
+        "founded_year"
+      ],
+      "company_type": [
+        "type"
+      ],
+      "phone": [
+        "location.phone"
+      ],
+      "email": [
+        "email",
+        "emails[]"
+      ],
+      "linkedin": [
+        "socials.linkedin_url",
+        "socials.linkedin_id"
+      ],
+      "facebook": [
+        "socials.facebook_url"
+      ],
+      "twitter_x": [
+        "socials.twitter_url"
+      ],
+      "instagram": [
+        "socials.instagram_url"
+      ],
+      "youtube": [
+        "socials.youtube_url"
+      ],
+      "crunchbase": [
+        "socials.crunchbase_url"
+      ],
+      "follower_count": [],
+      "categories": [
+        "categories[]"
+      ],
+      "keywords_tags_specialties": [
+        "keywords[]"
+      ],
+      "naics": [
+        "naics_codes[]"
+      ],
+      "sic": [],
+      "technologies": [
+        "technologies[]"
+      ],
+      "location": [
+        "location.country.name",
+        "location.country.code",
+        "location.state.name",
+        "location.state.code",
+        "location.city.name",
+        "location.address",
+        "location.postal_code"
+      ],
+      "domain_website": [
+        "domain",
+        "website"
+      ],
+      "corporate_relations": [
+        "subsidiaries[]"
+      ],
+      "funding_data": [
+        "financial.funding[].type",
+        "financial.funding[].date",
+        "financial.total_funding",
+        "financial.funding_stage"
+      ]
+    },
+    "ContactOut": {
+      "company_id": [],
+      "name": [
+        "name"
+      ],
+      "description": [
+        "description"
+      ],
+      "logo": [
+        "logo_url"
+      ],
+      "industry": [
+        "industry"
+      ],
+      "employee_count_or_range": [
+        "employees",
+        "size"
+      ],
+      "revenue": [
+        "revenue"
+      ],
+      "founded_year": [
+        "founded_at"
+      ],
+      "company_type": [
+        "type"
+      ],
+      "phone": [],
+      "email": [],
+      "linkedin": [
+        "li_vanity"
+      ],
+      "facebook": [],
+      "twitter_x": [],
+      "instagram": [],
+      "youtube": [],
+      "crunchbase": [],
+      "follower_count": [
+        "followers"
+      ],
+      "categories": [],
+      "keywords_tags_specialties": [
+        "specialties[]"
+      ],
+      "naics": [],
+      "sic": [],
+      "technologies": [],
+      "location": [
+        "country",
+        "headquarter",
+        "locations[]"
+      ],
+      "domain_website": [
+        "domain",
+        "website"
+      ],
+      "corporate_relations": [],
+      "funding_data": [
+        "funding.number_of_funding_rounds",
+        "funding.rounds[].funding_type",
+        "funding.rounds[].money_raised_usd"
+      ]
+    },
+    "Coresignal": {
+      "company_id": [
+        "id"
+      ],
+      "name": [
+        "name"
+      ],
+      "description": [
+        "description",
+        "enriched_summary"
+      ],
+      "logo": [
+        "logo"
+      ],
+      "industry": [
+        "industry",
+        "enriched_category"
+      ],
+      "employee_count_or_range": [
+        "size_employees_count",
+        "size_employees_count_inferred",
+        "size_range"
+      ],
+      "revenue": [
+        "revenue"
+      ],
+      "founded_year": [
+        "founded"
+      ],
+      "company_type": [
+        "type"
+      ],
+      "phone": [
+        "phone_numbers[]"
+      ],
+      "email": [
+        "emails[]"
+      ],
+      "linkedin": [
+        "websites_linkedin",
+        "websites_linkedin_canonical",
+        "linkedin_source_id"
+      ],
+      "facebook": [],
+      "twitter_x": [],
+      "instagram": [],
+      "youtube": [],
+      "crunchbase": [
+        "funding_rounds[].cb_url"
+      ],
+      "follower_count": [
+        "followers"
+      ],
+      "categories": [
+        "enriched_category"
+      ],
+      "keywords_tags_specialties": [
+        "enriched_keywords[]",
+        "specialities[]"
+      ],
+      "naics": [],
+      "sic": [],
+      "technologies": [
+        "technologies[].technology"
+      ],
+      "location": [
+        "location_hq_country",
+        "location_hq_country_iso_2",
+        "location_hq_country_iso_3",
+        "locations_full[].country",
+        "location_hq_state",
+        "locations_full[].state",
+        "location_hq_city",
+        "locations_full[].city",
+        "location_hq_raw_address",
+        "locations_full[].location_address"
+      ],
+      "domain_website": [
+        "websites_main",
+        "websites_resolved",
+        "websites_main_original"
+      ],
+      "corporate_relations": [],
+      "funding_data": [
+        "funding_rounds[].last_round_type",
+        "funding_rounds[].total_rounds_count",
+        "funding_rounds[].last_round_money_raised"
+      ]
+    },
+    "Crustdata": {
+      "company_id": [
+        "company_data.crustdata_company_id",
+        "company_data.basic_info.crustdata_company_id"
+      ],
+      "name": [
+        "company_data.basic_info.name",
+        "company_data.basic_info.profile_name"
+      ],
+      "description": [],
+      "logo": [
+        "company_data.basic_info.logo_permalink"
+      ],
+      "industry": [
+        "company_data.basic_info.industries[]"
+      ],
+      "employee_count_or_range": [
+        "company_data.basic_info.employee_count_range"
+      ],
+      "revenue": [],
+      "founded_year": [],
+      "company_type": [],
+      "phone": [],
+      "email": [],
+      "linkedin": [
+        "company_data.basic_info.professional_network_url",
+        "company_data.basic_info.professional_network_id"
+      ],
+      "facebook": [],
+      "twitter_x": [],
+      "instagram": [],
+      "youtube": [],
+      "crunchbase": [],
+      "follower_count": [],
+      "categories": [],
+      "keywords_tags_specialties": [],
+      "naics": [],
+      "sic": [],
+      "technologies": [],
+      "location": [],
+      "domain_website": [
+        "company_data.basic_info.primary_domain",
+        "company_data.basic_info.all_domains[]",
+        "company_data.basic_info.website"
+      ],
+      "corporate_relations": [],
+      "funding_data": []
+    }
+  },
+  "total_submitted_domains": 349
+}

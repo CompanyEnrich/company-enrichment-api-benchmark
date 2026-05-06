@@ -1,0 +1,171 @@
+field,types,records_with_field,field_coverage_pct,matched_field_coverage_pct,records_with_value,value_coverage_pct,matched_value_coverage_pct,returned_record_count,submitted_domain_count,occurrences
+alexa_ranking,integer,78,22.35,36.28,78,22.35,36.28,215,349,78
+angellist_url,string,8,2.29,3.72,8,2.29,3.72,215,349,8
+annual_revenue,integer,126,36.1,58.6,126,36.1,58.6,215,349,126
+annual_revenue_printed,string,126,36.1,58.6,126,36.1,58.6,215,349,126
+city,string,192,55.01,89.3,192,55.01,89.3,215,349,192
+country,string,208,59.6,96.74,208,59.6,96.74,215,349,208
+current_technologies,array,215,61.6,100,213,61.03,99.07,215,349,215
+current_technologies[].category,string,213,61.03,99.07,213,61.03,99.07,215,349,4248
+current_technologies[].name,string,213,61.03,99.07,213,61.03,99.07,215,349,4248
+current_technologies[].uid,string,213,61.03,99.07,213,61.03,99.07,215,349,4248
+departmental_head_count,object,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.accounting,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.administrative,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.arts_and_design,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.business_development,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.consulting,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.data_science,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.education,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.engineering,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.entrepreneurship,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.finance,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.human_resources,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.information_technology,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.legal,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.marketing,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.media_and_commmunication,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.operations,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.product_management,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.sales,integer,215,61.6,100,215,61.6,100,215,349,215
+departmental_head_count.support,integer,215,61.6,100,215,61.6,100,215,349,215
+estimated_num_employees,integer,215,61.6,100,186,53.3,86.51,215,349,215
+facebook_url,string,160,45.85,74.42,160,45.85,74.42,215,349,160
+founded_year,integer,152,43.55,70.7,152,43.55,70.7,215,349,152
+funding_events,array,204,58.45,94.88,37,10.6,17.21,215,349,204
+funding_events[].amount,string,24,6.88,11.16,24,6.88,11.16,215,349,48
+funding_events[].currency,string,37,10.6,17.21,37,10.6,17.21,215,349,81
+funding_events[].date,string,37,10.6,17.21,37,10.6,17.21,215,349,82
+funding_events[].id,string,37,10.6,17.21,37,10.6,17.21,215,349,82
+funding_events[].investors,string,34,9.74,15.81,34,9.74,15.81,215,349,67
+funding_events[].news_url,string,20,5.73,9.3,20,5.73,9.3,215,349,34
+funding_events[].type,string,37,10.6,17.21,37,10.6,17.21,215,349,82
+id,string,215,61.6,100,215,61.6,100,215,349,215
+industries,array,215,61.6,100,187,53.58,86.98,215,349,215
+industries[],string,187,53.58,86.98,187,53.58,86.98,215,349,223
+industry,string,187,53.58,86.98,187,53.58,86.98,215,349,187
+industry_tag_hash,object,187,53.58,86.98,187,53.58,86.98,215,349,187
+industry_tag_hash.airlines/aviation,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.apparel & fashion,string,6,1.72,2.79,6,1.72,2.79,215,349,6
+industry_tag_hash.architecture & planning,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.automotive,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.banking,string,4,1.15,1.86,4,1.15,1.86,215,349,4
+industry_tag_hash.building materials,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.civic & social organization,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.computer & network security,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.computer games,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.computer software,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.consumer electronics,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.consumer goods,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.consumer services,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.design,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.e-learning,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.education management,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.electrical/electronic manufacturing,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.entertainment,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.events services,string,4,1.15,1.86,4,1.15,1.86,215,349,4
+industry_tag_hash.facilities services,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.financial services,string,7,2.01,3.26,7,2.01,3.26,215,349,7
+industry_tag_hash.food production,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.furniture,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.government administration,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+"industry_tag_hash.health, wellness & fitness",string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.higher education,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.hospital & health care,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.hospitality,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.human resources,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.individual & family services,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.information services,string,5,1.43,2.33,5,1.43,2.33,215,349,5
+industry_tag_hash.information technology & services,string,34,9.74,15.81,34,9.74,15.81,215,349,34
+industry_tag_hash.insurance,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.international affairs,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.internet,string,10,2.87,4.65,10,2.87,4.65,215,349,10
+industry_tag_hash.law enforcement,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.law practice,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.legal services,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+"industry_tag_hash.leisure, travel & tourism",string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.logistics & supply chain,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.luxury goods & jewelry,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.machinery,string,5,1.43,2.33,5,1.43,2.33,215,349,5
+industry_tag_hash.management consulting,string,4,1.15,1.86,4,1.15,1.86,215,349,4
+industry_tag_hash.market research,string,4,1.15,1.86,4,1.15,1.86,215,349,4
+industry_tag_hash.marketing & advertising,string,5,1.43,2.33,5,1.43,2.33,215,349,5
+industry_tag_hash.mechanical or industrial engineering,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.media production,string,6,1.72,2.79,6,1.72,2.79,215,349,6
+industry_tag_hash.medical devices,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.mental health care,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.mining & metals,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.music,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.nonprofit organization management,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.oil & energy,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.online media,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.photography,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.political organization,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.professional training & coaching,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.publishing,string,6,1.72,2.79,6,1.72,2.79,215,349,6
+industry_tag_hash.research,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.restaurants,string,7,2.01,3.26,7,2.01,3.26,215,349,7
+industry_tag_hash.retail,string,8,2.29,3.72,8,2.29,3.72,215,349,8
+industry_tag_hash.semiconductors,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.sporting goods,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.sports,string,7,2.01,3.26,7,2.01,3.26,215,349,7
+industry_tag_hash.staffing & recruiting,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.telecommunications,string,5,1.43,2.33,5,1.43,2.33,215,349,5
+industry_tag_hash.transportation/trucking/railroad,string,2,0.57,0.93,2,0.57,0.93,215,349,2
+industry_tag_hash.venture capital & private equity,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_hash.wholesale,string,3,0.86,1.4,3,0.86,1.4,215,349,3
+industry_tag_hash.writing & editing,string,1,0.29,0.47,1,0.29,0.47,215,349,1
+industry_tag_id,string,187,53.58,86.98,187,53.58,86.98,215,349,187
+keywords,array,215,61.6,100,170,48.71,79.07,215,349,215
+keywords[],string,170,48.71,79.07,170,48.71,79.07,215,349,12146
+languages,array,215,61.6,100,101,28.94,46.98,215,349,215
+languages[],string,101,28.94,46.98,101,28.94,46.98,215,349,127
+latest_funding_round_date,string,37,10.6,17.21,37,10.6,17.21,215,349,37
+latest_funding_stage,string,37,10.6,17.21,37,10.6,17.21,215,349,37
+linkedin_uid,string,198,56.73,92.09,198,56.73,92.09,215,349,198
+linkedin_url,string,198,56.73,92.09,198,56.73,92.09,215,349,198
+logo_url,string,215,61.6,100,215,61.6,100,215,349,215
+market_cap,string,4,1.15,1.86,4,1.15,1.86,215,349,4
+naics_codes,array,128,36.68,59.53,128,36.68,59.53,215,349,128
+naics_codes[],string,128,36.68,59.53,128,36.68,59.53,215,349,128
+name,string,215,61.6,100,215,61.6,100,215,349,215
+num_suborganizations,integer,215,61.6,100,215,61.6,100,215,349,215
+org_chart_removed,boolean,17,4.87,7.91,17,4.87,7.91,215,349,17
+org_chart_root_people_ids,array,215,61.6,100,60,17.19,27.91,215,349,215
+org_chart_root_people_ids[],string,60,17.19,27.91,60,17.19,27.91,215,349,60
+org_chart_sector,string,46,13.18,21.4,46,13.18,21.4,215,349,46
+org_chart_show_department_filter,boolean,17,4.87,7.91,17,4.87,7.91,215,349,17
+organization_revenue,integer,215,61.6,100,126,36.1,58.6,215,349,215
+organization_revenue_printed,string,126,36.1,58.6,126,36.1,58.6,215,349,126
+owned_by_organization,object,34,9.74,15.81,34,9.74,15.81,215,349,34
+owned_by_organization.id,string,34,9.74,15.81,34,9.74,15.81,215,349,34
+owned_by_organization.name,string,34,9.74,15.81,34,9.74,15.81,215,349,34
+owned_by_organization.website_url,string,34,9.74,15.81,34,9.74,15.81,215,349,34
+owned_by_organization_id,string,34,9.74,15.81,34,9.74,15.81,215,349,34
+phone,string,167,47.85,77.67,167,47.85,77.67,215,349,167
+postal_code,string,164,46.99,76.28,164,46.99,76.28,215,349,164
+primary_domain,string,214,61.32,99.53,214,61.32,99.53,215,349,214
+primary_phone,object,167,47.85,77.67,167,47.85,77.67,215,349,167
+primary_phone.number,string,167,47.85,77.67,167,47.85,77.67,215,349,167
+primary_phone.sanitized_number,string,166,47.56,77.21,166,47.56,77.21,215,349,166
+primary_phone.source,string,167,47.85,77.67,167,47.85,77.67,215,349,167
+raw_address,string,208,59.6,96.74,208,59.6,96.74,215,349,208
+retail_location_count,integer,215,61.6,100,215,61.6,100,215,349,215
+sanitized_phone,string,166,47.56,77.21,166,47.56,77.21,215,349,166
+secondary_industries,array,215,61.6,100,29,8.31,13.49,215,349,215
+secondary_industries[],string,29,8.31,13.49,29,8.31,13.49,215,349,36
+short_description,string,197,56.45,91.63,197,56.45,91.63,215,349,197
+sic_codes,array,152,43.55,70.7,152,43.55,70.7,215,349,152
+sic_codes[],string,152,43.55,70.7,152,43.55,70.7,215,349,155
+snippets_loaded,boolean,215,61.6,100,215,61.6,100,215,349,215
+state,string,193,55.3,89.77,193,55.3,89.77,215,349,193
+street_address,string,152,43.55,70.7,152,43.55,70.7,215,349,152
+suborganizations,array,215,61.6,100,28,8.02,13.02,215,349,215
+suborganizations[].id,string,28,8.02,13.02,28,8.02,13.02,215,349,93
+suborganizations[].name,string,28,8.02,13.02,28,8.02,13.02,215,349,93
+suborganizations[].website_url,string,28,8.02,13.02,28,8.02,13.02,215,349,84
+technology_names,string,213,61.03,99.07,213,61.03,99.07,215,349,213
+total_funding,integer,24,6.88,11.16,24,6.88,11.16,215,349,24
+total_funding_printed,string,24,6.88,11.16,24,6.88,11.16,215,349,24
+twitter_url,string,136,38.97,63.26,136,38.97,63.26,215,349,136
+website_url,string,214,61.32,99.53,214,61.32,99.53,215,349,214
